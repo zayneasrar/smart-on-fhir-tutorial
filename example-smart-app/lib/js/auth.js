@@ -1,4 +1,3 @@
-/*global document: false, window: false, localStorage: false, XMLHttpRequest: false, location: false, utils: false*/
 if (document.querySelector) {
     window.addEventListener("load", function () {
         'use strict';
@@ -49,7 +48,7 @@ if (document.querySelector) {
             resourceServerField.value = document.getElementsByTagName("body")[0].getAttribute("data-resourceserver");
         }
 
-        /* Discover auth url button */
+       /* /* Discover auth url button */
         document.getElementById("get_discovery").addEventListener("click", function (e) {
             fhir_url = document.getElementById("fhir_base_url").value;
 
@@ -193,7 +192,7 @@ if (document.querySelector) {
                 localStorage.setItem('scope', code_params.oauth_scope);
                 localStorage.setItem('aud', code_params.aud);
             }
-        });
+        });*/
 
         /* Get token button */
         document.getElementById("get_token").addEventListener("click", function () {
