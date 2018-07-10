@@ -248,9 +248,11 @@ function displayCode(query) {
 
 function build_token_request(params) {
     'use strict';
-    var request_uri = "grant_type=" + encodeURIComponent(params.grant_type) + "&" +
-        "client_key=" + encodeURIComponent(params.client_key) + "&" +
-		"client_secret=" + encodeURIComponent(params.client_secret);
+    var request_uri = "grant_type=" + encodeURIComponent(params.grant_type) ;
+	
+	//+ "&" +
+    //   "client_key=" + encodeURIComponent(params.client_key) + "&" +
+	//	"client_secret=" + encodeURIComponent(params.client_secret);
 
     if (params.redirect_uri !== "") {
         request_uri += "&redirect_uri=" + encodeURIComponent(params.redirect_uri);
@@ -284,6 +286,7 @@ function postTokenForm(input, input2, statusInput, theUrl, theContent, callback)
     console.log(consoleMessage);
 
     xmlHttp.open("POST", theUrl);
+	xmlHttp.setRequestHeader("Authorization", "Basic " + btoa(params.client_key + ":" + params.client_secret));
     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlHttp.send(theContent);
 
