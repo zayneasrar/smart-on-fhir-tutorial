@@ -76,7 +76,7 @@ if (document.querySelector) {
                     } catch (e) {
                     	console.log("Error parsing response:" + e);
                     }
-                });
+                }, token_params);
 
                 document.getElementById("resource_response_field").value = "";
             }
@@ -266,7 +266,7 @@ function build_token_request(params) {
     return request_uri;
 }
 
-function postTokenForm(input, input2, statusInput, theUrl, theContent, callback) {
+function postTokenForm(input, input2, statusInput, theUrl, theContent, callback, params) {
     'use strict';
 
     var xmlHttp = new XMLHttpRequest(),
