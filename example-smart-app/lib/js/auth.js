@@ -20,12 +20,6 @@ if (document.querySelector) {
             }
         }, false);
 
-       /* document.getElementById("fhir_base_url").value = localStorage.getItem('fhir_base_url');
-        document.getElementById("auth_server_uri").value = localStorage.getItem('auth_server');
-        document.getElementById("client_id_1").value = localStorage.getItem('client_id');
-        document.getElementById("scope").value = localStorage.getItem('scope');
-        document.getElementById("aud").value = localStorage.getItem('aud');*/
-
         // Utility method from: http://stackoverflow.com/a/3855394
         var queryParams = (function(a) {
             if (a == "") return {};
