@@ -287,7 +287,7 @@ function postTokenForm(input, input2, statusInput, theUrl, theContent, callback,
 
     xmlHttp.open("POST", theUrl);
 	xmlHttp.setRequestHeader("Authorization", "Basic " + btoa(params.client_key + ":" + params.client_secret));
-    xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlHttp.send(theContent);
 
     xmlHttp.onreadystatechange = function () {
