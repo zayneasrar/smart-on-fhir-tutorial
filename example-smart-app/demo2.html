@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OAuth 2.0 Demo Client</title>
+    <link type="text/css" rel="stylesheet" href="https://sandboxcernercentral.com/resources/core/v2.18/css/responsive.css" />
+    <link type="text/css" rel="stylesheet" href="https://authz-demo.sandboxcerner.com/client/resources/demo.css" />
+  </head>
+  <body data-resourceserver="https://authz-demo.sandboxexamplehealth.com/mocks/protected-resource">
+    <div class="nav">
+      <h1>
+      <img src="https://authz-demo.sandboxcerner.com/client/resources/logo-cerner.png" alt="Cerner" /> 
+      <span class="nodisplay">-</span> 
+      <span>OAuth 2.0 Demo Client</span></h1>
+    </div>
+	
+    <div class="content">
+	<!--
+      <section class="form">
+        <p class="required">* = required</p>
+        <form class="standard" method="post" id="discovery_form">
+          <ol>
+            <li>
+              <h3 id="discovery_form_header">Discover authorization URLs</h3>
+              <fieldset>
+                <table id="discovery_fields">
+                  <tbody>
+                    <tr>
+                      <td class="col1">FHIR Base URL
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="fhir_base_url" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="button" value="Discover Authorization URLs" id="get_discovery" />
+                <textarea id="discovery_response_field"></textarea>
+              </fieldset>
+            </li>
+          </ol>
+          <input type="text" id="discovery_form_workaround" name="discovery_form_workaround" disabled="disabled" />
+        </form>
+      </section>
+      <section class="form">
+        <p class="required">* = required</p>
+        <form class="standard" method="post" id="request_form">
+          <ol>
+            <li>
+              <h3 id="request_form_header">Get authorization code</h3>
+              <fieldset>
+                <table id="auth_fields">
+                  <tbody>
+                    <tr>
+                      <td class="col1">Auth Server URI
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="auth_server_uri" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Client ID
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="client_id_1" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Response Type
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="response_type" value="code" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Redirect URI</td>
+                      <td class="col2">
+                        <input type="text" id="redirect_uri_1" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Presentation</td>
+                      <td>
+                        <select id="presentation" class="col2">
+                          <option value="tab">Tab</option>
+                          <option value="popup">Popup</option>
+                          <option value="mobile">Mobile-Sized Popup</option>
+                          <option value="samepage">Same Page</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Scope(s)</td>
+                      <td class="col2">
+                        <input type="text" id="scope" value="launch" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Launch Code</td>
+                      <td class="col2">
+                        <input type="text" id="launch" value="44b2deee-db44-4b01-9cdb-9843096e4fbd" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Aud
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="aud" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">State</td>
+                      <td class="col2">
+                        <input type="text" id="state_1" value="f507b090-105b-420f-a09e-7f1e179cb227" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="button" value="Get Authorization Code" id="get_code" />
+                <textarea id="code_response_field"></textarea>
+              </fieldset>
+            </li>
+          </ol>
+        </form>
+      </section>
+	  -->
+      <section class="form">
+        <p class="required">* = required</p>
+        <form class="standard" method="post" name="code_form">
+          <ol>
+            <li>
+              <h3 id="code_form_header">Get access token</h3>
+              <fieldset>
+                <table id="token_fields">
+                  <tbody>
+                    <tr>
+                      <td class="col1">Token URI
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="token_uri" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Client Key
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="client_key" value="" />
+                      </td>
+                    </tr>
+					<tr>
+                      <td class="col1">Client Secret
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="client_secret" value="" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Grant Type
+                      <abbr class="required" title="Required">*</abbr></td>
+                      <td class="col2">
+                        <input type="text" id="grant_type" value="client_credentials" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="button" value="Get Access Token" id="get_token" />
+                <input type="button" value="Refresh Access Token" id="get_refresh_token" />
+                <fieldset>
+                  <label id="http_status">HTTP Status</label>
+                  <input type="text" id="access_http_response" name="access_http_response" disabled="disabled" />
+                </fieldset>
+                <textarea id="token_response_field" readonly="readonly"></textarea>
+              </fieldset>
+            </li>
+          </ol>
+        </form>
+      </section>
+      <section class="form">
+        <form class="standard" method="post" name="token_form">
+          <ol>
+            <li>
+              <h3 id="token_form_header">Access protected resource</h3>
+              <fieldset>
+                <label id="access_token">Access Token</label>
+                <textarea id="resource_request_field"></textarea>
+                <table id="auth_fields">
+                  <tbody>
+                    <tr>
+                      <td class="col1">Resource Server</td>
+                      <td>
+                        <input type="text" id="resource_server" name="resource_server" class="col2" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="col1">Accept Header</td>
+                      <td>
+                        <input type="text" id="accept_header" name="accept_header" class="col2"
+                        value="application/json+fhir, application/json" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="button" value="Access Protected Resource" id="submit_token" />
+                <fieldset>
+                  <label id="http_status_resource">HTTP Status</label>
+                  <input type="text" id="resource_http_response" name="resource_http_response" disabled="disabled" />
+                </fieldset>
+                <section id="resource_response_field_container">
+                  <textarea id="resource_response_field"></textarea>
+                </section>
+              </fieldset>
+            </li>
+          </ol>
+        </form>
+      </section>
+      <script type="text/javascript" src="./lib/js/auth.js"></script>
+    </div>
+  </body>
+</html>
