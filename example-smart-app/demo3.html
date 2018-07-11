@@ -7,10 +7,12 @@
 	<script src='./lib/js/fhir-client-v0.1.12.js'></script>
     <script>
       var demo = {
-        serviceUrl: "https://fhir-open-api-dstu2.smarthealthit.org",
+        serviceUrl: "https://erxqa.inhealth.ae/blaze/",
         patientId: "99912345",
         auth: {
-          type: 'none'
+          type: 'basic'
+		  username: 'cernertest'
+		  password: 'ALjdy$%8173'
         }
       };
       var smart = FHIR.client(demo);
