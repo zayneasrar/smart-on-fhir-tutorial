@@ -16,6 +16,7 @@
         }
       };
       var smart = FHIR.client(demo);
+      FHIR.oauth2.ready(onReady, onError);
       /* Create a patient welcome banner */
       var pq = smart.patient.read();
       
